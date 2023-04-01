@@ -22,9 +22,9 @@ function likeBtn() {
 const messages =  document.querySelector('.messages')
 
 const messagesList = [
-    {userName: 'Jack Sparrow', text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus qui quasi non maiores id? Atque libero est animi modi obcaecati adipisci dolorem facilis ducimus, maiores ipsum? Error quo labore deleniti.', img: 'profile_picture-1.png'},
-    {userName: 'Michael Li', text: "That was a great idea Jack!Love what you're doing)", img: 'profile_picture-2.png'},
-    {userName: 'Lisa Larson', text: "One more step to dream 😃", img: 'profile_picture-3.png'},
+    {userName: 'Jack Sparrow', text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus qui quasi non maiores id? Atque libero est animi modi obcaecati adipisci dolorem facilis ducimus, maiores ipsum? Error quo labore deleniti.', img: 'https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'},
+    {userName: 'Michael Li', text: "That was a great idea Jack!Love what you're doing)", img: 'https://images.unsplash.com/photo-1635107510862-53886e926b74?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'},
+    {userName: 'Lisa Larson', text: "One more step to dream 😃", img: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'},
 ]
 
 function renderMessages() { 
@@ -36,7 +36,7 @@ function renderMessages() {
         <div class="input-idea card card-message">
             <div class="profile">
                 <div class="profile-picture">
-                    <img src="img/profile-picture/${message.img}" alt="">
+                    <img src="${message.img}" alt="">
                 </div>
                <div class="idea">
                     <h4>${message.userName}</h4>
