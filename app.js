@@ -32,7 +32,7 @@ function renderMessages() {
     for (let i = 0; i < messagesList.length; i++) {
         const message = messagesList[i]
         messages.innerHTML += `
-        <div class="message">
+        <div class="message" data-message="${i}">
         <div class="input-idea card card-message">
             <div class="profile">
                 <div class="profile-picture">
@@ -45,7 +45,8 @@ function renderMessages() {
             </div>
             <div class="btns">
                 <button class="btn btn-like" type="button" data-like="3"><i class="fa-regular fa-heart"></i></button>
-                <button class="btn btn-mes" type="button"><img src="img/message.png" alt=""></button>
+                <button class="btn btn-mes" type="button"><i class="fa-regular fa-message"></i></button>
+                <button class="btn btn-mes btn-trash" type="button"><i class="fa-solid fa-trash-can"></i></button>
             </div>
         </div>
         
@@ -56,6 +57,7 @@ function renderMessages() {
     likeBtn()
     count()
     calcProgress()
+    deleteMessae()
 }
 
 
@@ -75,10 +77,11 @@ function addIdea() {
         const idea = {
             userName: 'Abdugafor Gafarov',
             text: userIdeaInput.value,
-            img: 'profile_picture-1.png'
+            img: 'https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
         }
         messagesList.push(idea)
         renderMessages()
+        userIdeaInput.value = ''
     }
 }
 likeBtn()
@@ -122,3 +125,55 @@ function calcProgress() {
 
 calcProgress()
 
+
+// Delete button 
+
+
+function deleteMessae() {
+    const deleteBtn = document.querySelectorAll('.btn-trash')
+
+    deleteBtn.forEach(item => {
+        item.addEventListener('click', () => {
+            const element = item.parentNode.parentNode.parentNode.dataset.message
+
+            messagesList.splice(element, 1)
+            renderMessages()
+        })
+    })
+    addComment()
+}
+
+function addComment() {
+    const commentBtn = document.querySelectorAll('.btn-mes')
+
+    commentBtn.forEach(item => {
+        item.addEventListener('click', () => {
+            const element = item.parentNode.parentNode.parentNode
+
+            element.innerHTML += `
+            <div class="comment">
+                <div><i class="fa-solid fa-arrow-turn-up"></i></div>
+                    <div class="input-idea card comment-item">
+                    <div class="profile">
+                        <div class="profile-picture">
+                            <img src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                        </div>
+                    <div class="idea">
+                        <textarea name="idea" id="" placeholder="write your new idea...." required ></textarea>
+                    </div>
+                    </div>
+
+                    <div class="send-btn">
+                        <button class="btn" type="button" id="addBtn"><img src="img/message.png" alt=""></button>
+                    </div>
+                </div>
+            </div>
+            `
+            
+        })
+    })
+}
+
+function pushComment() {
+    
+}

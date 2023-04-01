@@ -103,6 +103,11 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     transition: all 0.23s;
+    font-size: 20px;
+}
+
+.btn:not(:last-child) {
+    margin-right: 6px;
 }
 
 .btn img {
@@ -119,8 +124,6 @@ body {
 .btn-like {
     background: #fff;
     color: black;
-    font-size: 22px;
-    margin-right: 6px;
     transition: all 0.23s;
 }
 
@@ -160,8 +163,8 @@ body {
 
 .btn-mes {
     background: #292842;
+    margin-right: 6px;
 }
-
 
 .unliked {
     animation-name: liked;
@@ -181,6 +184,26 @@ body {
     }
 }
 
+.comment {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.comment-item, .comment-item textarea {
+    background: #222;
+    color: white;
+}
+
+.comment-item textarea {
+    min-height: 50px;
+}
+.fa-arrow-turn-up {
+    transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+}
 @media (max-width: 900px) {
     .container {
         max-width: 800px;
@@ -203,6 +226,7 @@ body {
     }
     .profile img {
         width: 32px;
+        height: 32px;
     }
     .btn img {
         width: 15px;
